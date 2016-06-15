@@ -42,6 +42,14 @@ This provides the following:
  - Take care of removing machine from ELBs via the health check.
  - Take care of the Application health check.
 
+
+## Acksin
+
+This is a product of [Acksin](https://www.acksin.com). Acksin also
+provides
+[DevOps and NoOps consulting](https://www.acksin.com/consulting) and a
+tool to bid on AWS Spot Instances called [ParkingSpot](https://www.acksin.com/parkingspot).
+
 ## License
 
 This Source Code Form is subject to the terms of the Mozilla Public
