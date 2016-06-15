@@ -30,9 +30,19 @@ func healthHandler() {
 	http.HandleFunc(config.HealthPath, func(w http.ResponseWriter, r *http.Request) {
 		if config.Terminated {
 			http.Error(w, "Machine Terminating", 503)
-		} else {
-			w.Write([]byte("OK"))
+			return
 		}
+
+		resp, err := http.Get(config.AppHealth)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		if resp.StatusCode != 200 {
+			http.Error(w, "App down", 404)
+		}
+
+		w.Write([]byte("OK"))
 	})
 
 	http.ListenAndServe(config.HealthPort, nil)
