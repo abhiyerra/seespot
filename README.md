@@ -1,6 +1,6 @@
-# SeeSpotStop
+# SeeSpot
 
-SeeSpotStop provides a utility for AWS Spot instance that handles the
+SeeSpot provides a utility for AWS Spot instance that handles the
 health check if used with an AWS ELB and also handles cleanup of the
 instance when a termination notice is sent. When the termination
 notice is sent there is a 2 minute period before termination this
@@ -9,12 +9,12 @@ handles the cleanup.
 ## Usage
 
 ```sh
-seespotstop -health-port=8686 -health-path=/health -app-health="https://localhost:8080/health" -cleanup-task=/path/to/cleanup.sh
+seespot -health-port=8686 -health-path=/health -app-health="https://localhost:8080/health" -cleanup-task=/path/to/cleanup.sh
 ```
 
 ```sh
-$ seespotstop -help
-Usage of ./seespotstop:
+$ seespot -help
+Usage of ./seespot:
   -app-health string
         Application health check (default "http://127.0.0.1:8080/health")
   -cleanup-task string
@@ -29,7 +29,7 @@ This should be run within an upstart or systemd unit file.
 
 ## Description
 
-SeeSpotStop watches for a
+SeeSpot watches for a
 [termination notification](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/)
 every 5 seconds and upon notification closes off the health check on
 the application and initiates the cleanup tasks. If no termination
@@ -45,10 +45,11 @@ This provides the following:
 
 ## Acksin
 
-This is a product of [Acksin](https://www.acksin.com). Acksin also
-provides
-[DevOps and NoOps consulting](https://www.acksin.com/consulting) and a
-tool to bid on AWS Spot Instances called [ParkingSpot](https://www.acksin.com/parkingspot).
+This is a project of
+[Acksin](https://www.acksin.com/?source=seespot). Acksin provides
+tools to make your infrastructure more efficient and cost
+effective. Check out our spot instance bidding tool
+[ParkingSpot](https://www.acksin.com/parkingspot?source=seespot).
 
 ## License
 

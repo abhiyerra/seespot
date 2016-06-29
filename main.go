@@ -13,18 +13,16 @@ import (
 	"time"
 )
 
-var (
-	config struct {
-		HealthPort string
-		HealthPath string
+var config struct {
+	HealthPort string
+	HealthPath string
 
-		AppHealth string
+	AppHealth string
 
-		CleanupTask string
+	CleanupTask string
 
-		Terminated bool
-	}
-)
+	Terminated bool
+}
 
 func healthHandler() {
 	http.HandleFunc(config.HealthPath, func(w http.ResponseWriter, r *http.Request) {
@@ -73,7 +71,6 @@ func watchForTermination() {
 	for {
 		select {
 		case <-time.After(5 * time.Second):
-			fmt.Println("timed out")
 			if config.Terminated = terminated(); config.Terminated {
 				return
 			}
@@ -85,12 +82,15 @@ func main() {
 	flag.StringVar(&config.HealthPort, "health-port", ":8686", "Default health port to use with Load Balancers")
 	flag.StringVar(&config.HealthPath, "health-path", "/health", "Default health path the Load Balancer hits")
 	flag.StringVar(&config.AppHealth, "app-health", "http://127.0.0.1:8080/health", "Application health check")
+	noHealthCheck := flag.Bool("no-health", false, "No health checks on this server.")
 	flag.StringVar(&config.CleanupTask, "cleanup-task", "", "Script to run upon termination")
 	flag.Parse()
 
 	config.Terminated = false
 
-	go healthHandler()
+	if *noHealthCheck == false {
+		go healthHandler()
+	}
 	watchForTermination()
 	terminationRunner()
 }
