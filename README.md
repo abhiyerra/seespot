@@ -43,13 +43,13 @@ This provides the following:
  - Take care of the Application health check.
 
 
-## Acksin
+## Project of Acksin
 
 This is a project of
-[Acksin](https://www.acksin.com/?source=seespot). Acksin provides
+[Acksin](https://www.acksin.com/?utm_source=github&utm_medium=readme&utm_campaign=oss). Acksin provides
 tools to make your infrastructure more efficient and cost
 effective. Check out our spot instance bidding tool
-[ParkingSpot](https://www.acksin.com/parkingspot?source=seespot).
+[ParkingSpot](https://www.acksin.com/parkingspot?utm_source=github&utm_medium=readme&utm_campaign=oss).
 
 ## License
 
