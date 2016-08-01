@@ -1,10 +1,10 @@
 # SeeSpot
 
-SeeSpot provides a utility for AWS Spot instance that handles the
-health check if used with an AWS ELB and also handles cleanup of the
-instance when a termination notice is sent. When the termination
-notice is sent there is a 2 minute period before termination this
-handles the cleanup.
+When a Spot Instance is about to terminate there is a 2 minute window
+before the termination actually happens. SeeSpot is a utility for AWS
+Spot instances that handles the health check. If used with an AWS ELB
+it also handles cleanup of the instance when a Spot Termination notice
+is sent.
 
 ## Usage
 
