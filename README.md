@@ -1,3 +1,5 @@
+No longer maintained.
+
 # SeeSpot
 
 When a Spot Instance is about to terminate there is a 2 minute window
